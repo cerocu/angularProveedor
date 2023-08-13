@@ -1,0 +1,45 @@
+
+<mat-card>
+    <mat-card-header>
+      <mat-card-title>ProveedorModel List</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <mat-table [dataSource]="proveedors">
+        <ng-container matColumnDef="name">
+          <mat-header-cell *matHeaderCellDef>name</mat-header-cell>
+          <mat-cell *matCellDef="let proveedor">{{ proveedor.name }}</mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="businessName">
+          <mat-header-cell *matHeaderCellDef>businessName</mat-header-cell>
+          <mat-cell *matCellDef="let proveedor">{{ proveedor.businessName }}</mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="direction">
+          <mat-header-cell *matHeaderCellDef>direction</mat-header-cell>
+          <mat-cell *matCellDef="let proveedor">{{ proveedor.direction }}</mat-cell>
+        </ng-container>
+  
+        <ng-container matColumnDef="enabled">
+          <mat-header-cell *matHeaderCellDef>enabled</mat-header-cell>
+          <mat-cell *matCellDef="let proveedor">{{ proveedor.enabled }}</mat-cell>
+        </ng-container>
+        <ng-container matColumnDef="action">
+            <th mat-header-cell *matHeaderCellDef> Acciones </th>
+            <td mat-cell *matCellDef="let proveedor">
+              <button mat-icon-button (click)="editarProveedor(proveedor)">
+                <mat-icon>edit</mat-icon>
+              </button>
+              <button mat-icon-button (click)="eliminarProveedor(proveedor)">
+                <mat-icon>delete</mat-icon>
+              </button>
+            </td>
+          </ng-container>
+  
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+      </mat-table>
+      
+    </mat-card-content>
+  </mat-card>
+  
